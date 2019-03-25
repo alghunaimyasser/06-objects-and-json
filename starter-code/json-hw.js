@@ -8,9 +8,10 @@ var jsonString = '{ "title": "Uploads from everyone", "link": "https://www.flick
 called `flickerObj`
 */
 
+var flickerObj = {} ;
+flickerObj = JSON.parse(jsonString);
 
-
-
+console.log(flickerObj);
 /*
 2. Iterate (this means 'use a loop') and do a console.log of each of the item titles
 with the date the photo was taken. The first console.log should return the following:
@@ -18,15 +19,38 @@ with the date the photo was taken. The first console.log should return the follo
 "What a surprise in lyon. 2016-02-23T06:47:30-08:00"
 
 */
+// var items = {};
+// items = flickerObj.items;
+// for (var key in items){
+//     if (items.hasOwnProperty(key))
+//     {
+//         console.log(items[key].title + " " + items[key].date_taken);
+//     }
+// }
 
+for (var key in flickerObj.items){
+    if (flickerObj.items.hasOwnProperty(key))
+    {
+        console.log(flickerObj.items[key].title + " " + flickerObj.items[key].date_taken);
+    }
+}
 
 /*
 3. Create a new array called 'links'. Iterate through the items array in flickerObj and store the the links to each item in the 'links' array.
-*/
+*/var links = [];
 
-
-
+for (var key in flickerObj.items){
+    if (flickerObj.items.hasOwnProperty(key))
+    {
+        links.push(flickerObj.items[key].link);
+    }
+}
+console.log(links);
 /*
 4. Convert the 'links' array into a JSON string. Do a console.log of that JSON string, copy the results from the terminal and paste them into the input box at http://jsonlint.com/
 Did it create a valid JSON string?
 */ 
+
+var jsonarry = JSON.stringify(links);
+console.log(jsonarry);
+
